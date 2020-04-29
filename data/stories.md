@@ -67,7 +67,6 @@
     - slot{"location": "delhi"}
     - export
 
-
 ## interactive_story_1
 * greet
     - utter_greet
@@ -103,8 +102,7 @@
     - slot{"location": "delhi"}
 * affirm
     - utter_goodbye
-    
-    
+
 ## happy_path
 * greet
     - utter_greet
@@ -115,7 +113,6 @@
     - slot{"location": "mumbai"}
 * affirm
     - utter_goodbye
-
 
 ## interactive_story_1
 * greet
@@ -129,3 +126,32 @@
     - slot{"location": "delhi"}
 * affirm
     - utter_goodbye
+
+## 1
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "mumbai"}
+    - slot{"location": "mumbai"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - utter_ask_budget
+* budget_range{"budget": "mid"}
+    - slot{"budget": "mid"}
+    - action_search_restaurants
+* affirm
+    - utter_goodbye
+
+## 2
+
+* greet
+    - utter_greet
+* restaurant_search{"budget":"low"}
+    - slot{"budget":"low"}
+    - utter_ask_location
+* restaurant_search{"location":"mumbai"}
+    - slot{"location":"mumbai"}
+    - action_search_restaurants
+    - slot{"budget":"low"}
